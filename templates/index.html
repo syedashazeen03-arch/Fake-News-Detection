@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TruthLens AI | Fake News Detection</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Banner -->
+
+    <div class="banner">
+
+        <h1>AI-Powered Fake News Detection</h1>
+
+        <p>
+            Verify news articles using Machine Learning and Natural Language Processing.
+        </p>
+
+    </div>
+
+
+    <!-- Feature Cards -->
+
+    <div class="stats">
+
+        <div class="card">
+            <h2>129K+</h2>
+            <p>News Articles</p>
+        </div>
+
+        <div class="card">
+            <h2>99%+</h2>
+            <p>Accuracy</p>
+        </div>
+
+        <div class="card">
+            <h2>⚡</h2>
+            <p>Instant Analysis</p>
+        </div>
+
+    </div>
+
+
+    <form action="/predict" method="POST">
+
+        <label>📝 Enter News Article</label>
+
+        <textarea
+        name="news"
+        placeholder="Paste a news article from Google, BBC, Reuters, NDTV, Twitter, or any website..."
+        required>{{ news if news else '' }}</textarea>
+
+
+        <div class="button-group">
+
+            <button type="submit">
+                🚀 Analyze News
+            </button>
+
+            <button type="reset" class="clear-btn">
+                🧹 Clear
+            </button>
+
+        </div>
+
+    </form>
+
+
+    {% if prediction %}
+
+    <div class="result
+    {% if 'REAL' in prediction %}
+    real
+    {% else %}
+    fake
+    {% endif %}
+    ">
+
+        <h2>📊 Analysis Result</h2>
+
+        <h1>{{ prediction }}</h1>
+
+    </div>
+
+    {% endif %}
+
+
+    <div class="features">
+
+        <div>✔ Multi-Source News Detection</div>
+
+        <div>✔ Machine Learning Based</div>
+
+        <div>✔ NLP Text Processing</div>
+
+        <div>✔ Fast Prediction</div>
+
+    </div>
+
+
+    <footer>
+
+        <h3>👨‍💻 Developed by Syeda Misba Shazeen</h3>
+
+         Machine Learning project
+
+        
+
+    </footer>
+
+</div>
+
+</body>
+</html>
